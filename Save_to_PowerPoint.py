@@ -21,4 +21,25 @@ df['age'] = df['age'].replace(datetime.now().year - 1900, None)
 prs = Presentation()
 
 
+def save_plot_to_png(fig, slide_title):
+    img_path = f"{slide_title}.png"
+    fig.savefig(img_path)
+    slide_layout = prs.slide_layouts[5]
+    slide = prs.slides.add_slide(slide_layout)
+    title = slide.shapes.title
+    title.text = slide_title
+    pic = slide.shapes.add_picture(img_path, Inches(1), Inches(1), width=Inches(8.5), height=Inches(4.75))
 
+# Stance Distribution
+fig = plt.figure()
+sns.countplot(data=df, x='stance', color='green')
+plt.title('Stance Distribution')
+save_plot_to_png(fig, 'Stance Distribution')
+plt.close(fig)
+
+
+fig = plt.figure()
+sns.boxplot(data=df, x='stance', y='significant_strikes_landed_per_minute', color='green')
+plt.title('Stance vs. Strikes Landed')
+save_plot_to_png(fig, 'Stance vs. Strikes Landed')
+plt.close(fig)
