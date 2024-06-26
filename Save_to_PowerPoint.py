@@ -37,7 +37,7 @@ plt.title('Stance Distribution')
 save_plot_to_png(fig, 'Stance Distribution')
 plt.close(fig)
 
-
+# Stance vs. Strikes Landed
 fig = plt.figure()
 sns.boxplot(data=df, x='stance', y='significant_strikes_landed_per_minute', color='green')
 plt.title('Stance vs. Strikes Landed')
