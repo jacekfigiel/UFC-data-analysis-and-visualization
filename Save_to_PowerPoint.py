@@ -28,7 +28,7 @@ def save_plot_to_png(fig, slide_title):
     slide = prs.slides.add_slide(slide_layout)
     title = slide.shapes.title
     title.text = slide_title
-    pic = slide.shapes.add_picture(img_path, Inches(1), Inches(1), width=Inches(8.5), height=Inches(4.75))
+    pic = slide.shapes.add_picture(img_path, Inches(1), Inches(2), width=Inches(8.5), height=Inches(4.75))
 
 # Stance Distribution
 fig = plt.figure()
